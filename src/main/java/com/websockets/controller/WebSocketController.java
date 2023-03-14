@@ -19,7 +19,7 @@ public class WebSocketController {
 
     @MessageMapping("/greetings")
     @SendTo("/queue/greetings")
-    public Greeting reply(@Payload Message message) {
-        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.name()) + "!");
+    public Greeting greeting(Greeting greeting) {
+        return new Greeting("Hello, " + HtmlUtils.htmlEscape(greeting.name()) + "!");
     }
 }

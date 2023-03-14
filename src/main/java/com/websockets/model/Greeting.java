@@ -1,4 +1,4 @@
 package com.websockets.model;
 
-public record Greeting(String content) {
+public record Greeting(String name) {
 }
