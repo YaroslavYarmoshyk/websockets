@@ -51,6 +51,7 @@ function sendMessage() {
         content: $("#message").val()
     }
     stompClient.send("/app/news", {}, JSON.stringify(message));
+    $("#message").val("");
 }
 
 function showGreeting(message) {

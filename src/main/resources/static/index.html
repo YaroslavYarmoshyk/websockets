@@ -29,12 +29,12 @@
             </form>
         </div>
         <div class="col-md-6">
-            <form class="form-inline">
+            <form class="form-block">
                 <div class="form-group">
-                    <label for="message">Type your message?</label>
-                    <input type="text" id="message" class="form-control" placeholder="Message here...">
+                    <label for="message">Type your message</label>
+                    <textarea id="message" class="form-control" placeholder="Message here..."></textarea>
                 </div>
-                <button id="sendMessage" class="btn btn-default" type="submit">Send message</button>
+                <button id="sendMessage" class="btn btn-default" type="submit">Send</button>
             </form>
         </div>
     </div>
@@ -43,7 +43,7 @@
             <table id="conversation" class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Greetings</th>
+                    <th>Messages</th>
                 </tr>
                 </thead>
                 <tbody id="greetings">
