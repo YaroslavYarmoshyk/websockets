@@ -1,6 +1,7 @@
 package com.websockets.controller;
 
 import com.websockets.model.Greeting;
+import com.websockets.model.Message;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
@@ -11,8 +12,8 @@ public class WebSocketController {
 
     @MessageMapping("/news")
     @SendTo("/topic/news")
-    public Greeting broadCastNews(Object message) {
-        return new Greeting("news");
+    public Message broadCastNews(Message message) {
+        return message;
     }
 
     @MessageMapping("/greetings")

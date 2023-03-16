@@ -44,7 +44,7 @@ function sendName() {
 
 function sendMessage() {
     const message = JSON.stringify({'message': $("#message").val()});
-    stompClient.send("/topic/news", {}, message);
+    stompClient.send("/app/news", {}, message);
 }
 
 function showGreeting(message) {
