@@ -24,7 +24,7 @@ function connect() {
         stompClient.subscribe('/topic/news', function (message) {
             const name = JSON.parse(message.body).name;
             const content = JSON.parse(message.body).content;
-            showGreeting(`${name}:${content}`);
+            showGreeting(`${name}: ${content}`);
         });
         sendName();
     });
@@ -37,15 +37,20 @@ function disconnect() {
     setConnected(false);
     console.log("Disconnected");
 }
-
+var username;
 function sendName() {
-    const name = JSON.stringify({'name': $("#name").val()});
+    username = $("#name").val();
+    const name = JSON.stringify({'name': username});
     stompClient.send("/app/greetings", {}, name);
+
 }
 
 function sendMessage() {
-    const message = JSON.stringify({'message': $("#message").val()});
-    stompClient.send("/app/news", {}, message);
+    const message = {
+        name: username,
+        content: $("#message").val()
+    }
+    stompClient.send("/app/news", {}, JSON.stringify(message));
 }
 
 function showGreeting(message) {
