@@ -19,12 +19,12 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/queue/greetings', function (greeting) {
-            showGreeting(JSON.parse(greeting.body).name);
+            showMessage(JSON.parse(greeting.body).name);
         });
         stompClient.subscribe('/topic/news', function (message) {
             const name = JSON.parse(message.body).name;
             const content = JSON.parse(message.body).content;
-            showGreeting(`${name}: ${content}`);
+            showMessage(`${name}: ${content}`);
         });
         sendName();
     });
@@ -54,7 +54,7 @@ function sendMessage() {
     $("#message").val("");
 }
 
-function showGreeting(message) {
+function showMessage(message) {
     $("#greetings").append("<tr><td>" + message + "</td></tr>");
 }
 
