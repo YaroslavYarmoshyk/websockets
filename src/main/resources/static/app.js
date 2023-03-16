@@ -26,6 +26,7 @@ function connect() {
             const content = JSON.parse(message.body).content;
             showGreeting(`${name}:${content}`);
         });
+        sendName();
     });
 }
 
@@ -57,7 +58,6 @@ $(function () {
     });
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
-    $( "#send" ).click(function() { sendName(); });
     $( "#sendMessage" ).click(function() { sendMessage(); });
 });
 
